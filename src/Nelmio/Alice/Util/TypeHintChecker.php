@@ -53,7 +53,7 @@ class TypeHintChecker
         }
 
         $hintedClass = $params[$parameterNumber]->getClass()->getName();
-        if ('DateTime' === $hintedClass) {
+        if (in_array($hintedClass, array('DateTime', 'DateTimeInterface'))) {
             return $this->createDate($value, $reflection, $method);
         }
 
